@@ -1,6 +1,10 @@
 # newsapp_ar
 
-A new Flutter project.
+A Simple Newsapp in Flutter
+
+<img src="https://github.com/rahamanar/newsapp/blob/main/Screenshot_1.png" width="160" height="280">          <img src="https://github.com/rahamanar/newsapp/blob/main/Screenshot_2.png" width="160" height="280">          <img src="https://github.com/rahamanar/newsapp/blob/main/Screenshot_4.png" width="160" height="280">          <img src="https://github.com/rahamanar/newsapp/blob/main/Screenshot_3.png" width="160" height="280"> 
+
+<br/>
 
 ## Getting Started
 
