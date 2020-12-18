@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ArticleScreen extends StatefulWidget {
@@ -19,15 +20,39 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: WebView(
-          initialUrl: widget.url,
-          onWebViewCreated: (controller) {
-            _completer.complete(controller);
-          },
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("News"),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              share(context, widget.url);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Icon(
+                Icons.share,
+              ),
+            ),
+          )
+        ],
+      ),
+      body: WebView(
+        initialUrl: widget.url,
+        onWebViewCreated: (controller) {
+          _completer.complete(controller);
+        },
       ),
     );
   }
+}
+
+void share(BuildContext context, String url) {
+  final RenderBox box = context.findRenderObject();
+  final String text = "Article Url";
+  Share.share(
+    url,
+    subject: text,
+    sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
+  );
 }

@@ -34,50 +34,47 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("NewsApp"),
-        ),
         body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                Container(
-                  height: 80,
-                  child: ListView.builder(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                    ),
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) {
-                      return CategoryTile(
-                        imgUrl: categories[index].imgUrl,
-                        label: categories[index].label,
-                      );
-                    },
-                  ),
+      child: Container(
+        child: Column(
+          children: [
+            Container(
+              height: 80,
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 12,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: articles.length,
-                  itemBuilder: (context, index) {
-                    return NewsTile(
-                      imageUrl: articles[index].urlToImage,
-                      title: articles[index].title,
-                      description: articles[index].description,
-                      url: articles[index].url,
-                    );
-                  },
-                ),
-              ],
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return CategoryTile(
+                    imgUrl: categories[index].imgUrl,
+                    label: categories[index].label,
+                  );
+                },
+              ),
             ),
-          ),
-        ));
+            SizedBox(
+              height: 10,
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: articles.length,
+              itemBuilder: (context, index) {
+                return NewsTile(
+                  imageUrl: articles[index].urlToImage,
+                  title: articles[index].title,
+                  description: articles[index].description,
+                  url: articles[index].url,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
 
